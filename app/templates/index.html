@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Leander Monitor</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" type='text/css' href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Raleway:300,400'>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+
+	<body>
+		{% include 'elements/navbar.html' %}
+
+		<div class="content">
+
+			<div class="row">
+				<div class="col-md-12">
+					<p><h1>ZFS Pool Status</h1></p>
+					<p><pre>{{ zpool_status }}</pre></p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<p><h1>Mounted Filesystems</h1></p>
+					<p><pre>{{ filesystem_status }}</pre></p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<p><h1>Block Devices</h1></p>
+					<p><pre>{{ block_status }}</pre></p>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>
