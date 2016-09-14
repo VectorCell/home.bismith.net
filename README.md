@@ -1,2 +1,3 @@
-# home.bismith.net
-Site repo for home.bismith.net
+# leander-monitor
+
+Site repo for leander-monitor
