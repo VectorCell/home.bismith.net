@@ -25,6 +25,12 @@ while [ 1 ]; do
 
 	sudo smbstatus > $SMB_FILE
 
+	BADDRIVES=$(sudo zpool status | grep NAME -A 4 | grep -v NAME | grep -v ONLINE)
+	if [ -n "$BADDRIVES" ]; then
+		echo "bad drive detected: $BADDRIVES"
+		curl http://bismith.net/api/sendzfsalert
+	fi
+
 	sleep 5m
 
 done
