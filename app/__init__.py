@@ -26,7 +26,8 @@ def index_page():
 	return render_template('index.html',
 	                       zpool_status=read_status_file('/tmp/zpool.statusfile'),
 	                       filesystem_status=read_status_file('/tmp/filesystem.statusfile'),
-	                       block_status=read_status_file('/tmp/block.statusfile'))
+	                       block_status=read_status_file('/tmp/block.statusfile'),
+	                       samba_status=read_status_file('/tmp/samba.statusfile'))
 
 
 @app.route('/<path:path>')
