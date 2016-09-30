@@ -27,7 +27,8 @@ def index_page():
 	                       zpool_status=read_status_file('/tmp/zpool.statusfile'),
 	                       filesystem_status=read_status_file('/tmp/filesystem.statusfile'),
 	                       block_status=read_status_file('/tmp/block.statusfile'),
-	                       samba_status=read_status_file('/tmp/samba.statusfile'))
+	                       samba_status=read_status_file('/tmp/samba.statusfile'),
+	                       smart_status=read_status_file('/tmp/smart.statusfile'))
 
 
 @app.route('/<path:path>')

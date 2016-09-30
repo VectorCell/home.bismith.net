@@ -4,6 +4,7 @@ ZPOOL_FILE="/tmp/zpool.statusfile"
 FS_FILE="/tmp/filesystem.statusfile"
 BLK_FILE="/tmp/block.statusfile"
 SMB_FILE="/tmp/samba.statusfile"
+SMART_FILE="/tmp/smart.statusfile"
 
 sudo rm /tmp/*.statusfile
 
@@ -24,6 +25,12 @@ while [ 1 ]; do
 	sudo blkid >> $BLK_FILE
 
 	sudo smbstatus > $SMB_FILE
+
+	echo "SMART data for /dev/sdc:" >  $SMART_FILE
+	sudo smartctl --all /dev/sdc    >> $SMART_FILE
+	echo -e "\n\n"                  >> $SMART_FILE
+	echo "SMART data for /dev/sdd:" >> $SMART_FILE
+	sudo smartctl --all /dev/sdd    >> $SMART_FILE
 
 	# disabled until I make it not terrible
 	#BADDRIVES=$(sudo zpool status | grep NAME -A 4 | grep -v NAME | grep -v ONLINE)
